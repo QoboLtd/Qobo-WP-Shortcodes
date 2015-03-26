@@ -1,11 +1,12 @@
 <?php
 function qbsc_get_post_field( $atts ) {
     $atts = shortcode_atts( array(
-        'id' => '1',
-        'field' => 'title',
+        'id' => null,
+        'field' => 'post_title',
         'do_shortcode' => 1,
         ), $atts );
-
+    if ( !$atts['id'] ) $atts['id'] = get_the_ID();
+    
 	$result = get_post_field($atts['field'], $atts['id']);
     if(!empty($atts['do_shortcode']))
     	return do_shortcode($result); 
@@ -16,13 +17,14 @@ add_shortcode( 'qbsc-get-post-field', 'qbsc_get_post_field' );
 
 function qbsc_get_post_thumbnail( $atts ) {
     $atts = shortcode_atts( array(
-        'id' => '1',
+        'id' => null,
         'size' => 'post-thumbnail',
         'src' => null,
         'class' => null,
         'alt' => null,
         'title' => null,
         ), $atts );
+    if ( !$atts['id'] ) $atts['id'] = get_the_ID();
 
     $thumb_attr = array();
     if($atts['src'])
@@ -40,8 +42,9 @@ add_shortcode( 'qbsc-get-post-thumbnail', 'qbsc_get_post_thumbnail' );
 
 function qbsc_get_post_anchor( $atts, $content=null ) {
     $atts = shortcode_atts( array(
-        'id' => '1',
+        'id' => null,
         ), $atts );
+    if ( !$atts['id'] ) $atts['id'] = get_the_ID();
 
     if($content) {
         $content = do_shortcode($content);
@@ -81,7 +84,7 @@ function qbsc_trim( $atts, $content=null ) {
         if(!empty($atts['strip_html']))
             $content = wp_strip_all_tags($content);
         if($is_trimmed)
-        	$content .= $atts['suffix'];
+        	$content = rtrim($content).$atts['suffix'];
     }
 
     return $content;
