@@ -36,7 +36,7 @@ function qbsc_get_post_field_su( $shortcodes ) {
       'id' => array(
         'default' => '',
         'name' => __( 'Post ID', QBSC__TEXT_DOMAIN ),
-        'desc' => __( 'Post ID', QBSC__TEXT_DOMAIN ),
+        'desc' => __( 'You can specify custom post ID. Leave this field empty to use an ID of the current post. Current post ID may not work in Live Preview mode', QBSC__TEXT_DOMAIN ),
       ),
       'field' => array(
         'type' => 'select',
@@ -97,7 +97,7 @@ function qbsc_get_post_thumbnail_su( $shortcodes ) {
       'id' => array(
         'default' => '',
         'name' => __( 'Post ID', QBSC__TEXT_DOMAIN ),
-        'desc' => __( 'Post ID', QBSC__TEXT_DOMAIN ),
+        'desc' => __( 'You can specify custom post ID. Leave this field empty to use an ID of the current post. Current post ID may not work in Live Preview mode', QBSC__TEXT_DOMAIN ),
       ),
       'size' => array(
         'type' => 'select',
@@ -150,7 +150,7 @@ function qbsc_get_post_anchor_su( $shortcodes ) {
         'id' => array(
           'default' => '',
           'name' => __( 'Post ID', QBSC__TEXT_DOMAIN ),
-          'desc' => __( 'Post ID', QBSC__TEXT_DOMAIN ),
+          'desc' => __( 'You can specify custom post ID. Leave this field empty to use an ID of the current post. Current post ID may not work in Live Preview mode', QBSC__TEXT_DOMAIN ),
         ),
       ),
       'desc' => __( 'Retrieve an anchor element linking to the paremeterised post ID.', QBSC__TEXT_DOMAIN ),
