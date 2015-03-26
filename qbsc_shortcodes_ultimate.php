@@ -194,7 +194,7 @@ function qbsc_trim_su( $shortcodes ) {
           'type' => 'bool',
           'default' => 'yes',
           'name' => __( 'Strip HTML', QBSC__TEXT_DOMAIN ),
-          'desc' => __( 'Maximum nubmer of characters', QBSC__TEXT_DOMAIN ),
+          'desc' => __( 'Whether to strip all HTML tags including script and style', QBSC__TEXT_DOMAIN ),
         ),
       ),
       'content' => __( '', QBSC__TEXT_DOMAIN ),
