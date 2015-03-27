@@ -14,5 +14,6 @@ define('QBSC__GROUP_CUSTOM_KEY', 'custom');
 define('QBSC__GROUP_CUSTOM', 'Custom');
 
 define('QBSC__PLUGIN_DIR', plugin_dir_path( __FILE__ ));
-require_once (QBSC__PLUGIN_DIR.'qbsc_shortcodes.php');
-require_once (QBSC__PLUGIN_DIR.'qbsc_shortcodes_ultimate.php');
+define('QBSC__PLUGIN_SRC_DIR', plugin_dir_path( __FILE__ ) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR);
+require_once (QBSC__PLUGIN_SRC_DIR.'qbsc_shortcodes.php');
+require_once (QBSC__PLUGIN_SRC_DIR.'qbsc_shortcodes_ultimate.php');

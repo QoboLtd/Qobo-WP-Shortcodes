@@ -9,6 +9,7 @@ function qbsc_filter_su() {
   if ( class_exists( QBSC__SU_CLASS ) ) {
     add_filter( 'su/data/groups', 'qbsc_group_su' );
     add_filter( 'su/data/shortcodes', 'qbsc_register_su' );
+    add_filter( 'su/data/shortcodes', 'qbsc_sort_su' );
   }
 }
 
@@ -26,6 +27,16 @@ function qbsc_register_su( $shortcodes ) {
 
   return $shortcodes;
 }
+
+function qbsc_sort_su( $shortcodes ) {
+  uasort($shortcodes,
+    function($a, $b) {
+      return strnatcmp($a['name'], $b['name']);
+    });
+
+  return $shortcodes;
+}
+
 
 function qbsc_get_post_field_su( $shortcodes ) {
   $shortcodes['qbsc_get_post_field'] = array(
