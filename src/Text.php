@@ -11,6 +11,7 @@ class Text
             'words' => 0,
             'suffix' => '',
             'strip_html' => 0,
+            'strip_shortcodes' => 0,
             ), $atts );
     
         if ($content) {
@@ -32,6 +33,8 @@ class Text
                 $content = wp_strip_all_tags($content);
             if ($is_trimmed)
             	$content = rtrim($content).$atts['suffix'];
+            if (!empty($atts['strip_shortcodes']))
+                $content = strip_shortcodes($content);
         }
     
         return $content;
