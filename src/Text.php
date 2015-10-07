@@ -11,6 +11,7 @@ class Text
             'words' => 0,
             'suffix' => '',
             'strip_html' => 0,
+            'strip_urls' => 0,
             'strip_shortcodes' => 0,
             ), $atts );
     
@@ -33,6 +34,10 @@ class Text
                 $content = wp_strip_all_tags($content);
             if ($is_trimmed)
             	$content = rtrim($content).$atts['suffix'];
+            if (!empty($atts['strip_urls'])){
+                $pattern = "/(http|https|ftp)*[:\/\/]*[A-Za-z0-9\-_]+\.+[A-Za-z0-9\.\/%&=\?\-_]+/i";
+                $content = preg_replace($pattern, ' ', $content);
+            }
             if (!empty($atts['strip_shortcodes']))
                 $content = strip_shortcodes($content);
         }
