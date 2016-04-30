@@ -1,0 +1,8 @@
+{
+	"name": "qobo/qobo-wp-shortcodes",
+	"description": "WordPress plugin with some useful shortcodes",
+	"type": "wordpress-plugin",
+	"keywords": ["wordpress"],
+	"license": "GPL-2.0"
+
+}
